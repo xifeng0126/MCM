@@ -1,0 +1,17 @@
+n = int(input())
+s = {}
+sta = n//10
+ans = 0
+for i in range(n):
+    s[i] = []
+for i in range(n):
+    x,y = map(int,input().split())
+    s[x].append(y)
+for c in s: 
+    if len(s[c])>sta:
+        s[c].sort()
+        ans+=sum(s[c][:len(s[c])-sta])
+print(ans)
+
+
+

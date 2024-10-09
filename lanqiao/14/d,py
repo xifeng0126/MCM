@@ -1,0 +1,32 @@
+def find_min(w,num,s):
+    sl = s[w]
+    sl.sort()
+    ans = 0
+    for i in range(num):
+        ans+=sl[i]
+    return ans
+
+n = int(input())
+a = list()
+b = list()
+s = {}
+for i in range(n):
+    temp = list(map(int,input().split()))
+    a.append(temp[0])
+    b.append(temp[1])
+nums = [n//10]*10
+for i in range(len(a)):
+    nums[a[i]]-=1
+    if a[i] not in s:
+        s[a[i]] = []
+    s[a[i]].append(b[i])
+ans = 0
+for i in range(len(nums)):
+    if(nums[i]<0):
+        ans+=find_min(i,-nums[i],s)
+print(ans)
+        
+
+
+    
+    
